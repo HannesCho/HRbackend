@@ -9,6 +9,9 @@
     "test": "jest --watchAll",
     "start": "npx ts-node src/server.ts"
   },
+  "engines": {
+    "node": "16.13.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/HannesCho/HR_Manager.git"
