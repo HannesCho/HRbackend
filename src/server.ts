@@ -1,7 +1,7 @@
 import "./db";
 import "./models/User";
 import "./models/Comment";
-import express from "express";
+import express, { Request, Response } from "express";
 import cors from "cors";
 import morgan from "morgan";
 import config from "./config/config";
@@ -19,10 +19,15 @@ app.use(logger);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/", rootRouter);
-app.use("/user", userRouter);
-app.use("/comment", commentRouter);
-app.use("/employee", employeeRouter);
+app.use("/api/", rootRouter);
+app.use("/api/user", userRouter);
+app.use("/api/comment", commentRouter);
+app.use("/api/employee", employeeRouter);
+
+app.get("/", (req: Request, res: Response) => {
+  console.log("Get Response");
+  res.send("Hello");
+});
 
 const handleListening = () =>
   console.log(
